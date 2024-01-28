@@ -11,6 +11,17 @@
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	rel="stylesheet">
+	<style type="text/css">
+	.table-width{
+	max-width:800px;
+	width:800px;
+	}
+	.footer{
+	bottom: 0px;
+    position: fixed;
+    width: 100%;
+	}
+	</style>
 </head>
 
 <body>
@@ -41,42 +52,47 @@
 	<!-- Hero Section -->
 	                       <p th:text="${save}"></p>
 		<h2 class="text-center mb-4">Add Employee</h2>
-		<div class="container mt-3">
+		<div class="container mt-3 table-width">
 		         
 			<form th:action="@{/saveemployee}" th:object="${added}" method="post">
 				<div class="mb-3 mt-3">
 					<label for="firstname">firstname:</label> <input type="text"
 						class="form-control" id="firstname" name="firstname" th:field="*{firstname}">
+					<p th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" class="btn btn-color-danger"></p>
 				</div>
 				<div class="mb-3">
 					<label for="lastname">lastname:</label> 
 					<input type="text" class="form-control" id="lastname" name="lastname" th:field="*{lastname}">
+					<p th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" class="btn btn-color-danger"></p>
 				</div>
 				<div class="mb-3">
 					<label for="email">email:</label> 
 	                <input type="text" class="form-control" id="email" name="email" th:field="*{email}">
+	                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="btn btn-color-danger"></p>
 				</div>
 				<div class="mb-3">
 					<label for="phno">phno:</label> 
 					<input type="text" class="form-control" id="phno" name="phno" th:field="*{phno}">
+					<p th:if="${#fields.hasErrors('phno')}" th:errors="*{phno}" class="btn btn-color-danger"></p>
 				</div>
 				<div class="mb-3">
 					<label for="salary">salary:</label> 
 					<input type="text" class="form-control" id="salary" name="salary" th:field="*{salary}">
+					<p th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}" class="btn btn-color-danger"></p>
 				</div>
 
 				<button type="submit" class="btn btn-primary">Add</button>
 			</form>
 		</div>
 		<!-- Footer Section -->
-		<div class="card text-center">
+		<div class="card text-center ">
 			<div class="card-header">
 				<ul class="nav nav-tabs card-header-tabs">
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="true" href="#">Active</a></li>
 				</ul>
 			</div>
-			<div class="card-body">
+			<div class="card-body footer" style="background-color:black;color:white;">
 				<h5 class="card-title">TeamTracker: Simplifying Employee
 					Management</h5>
 				<p class="card-text">Optimize your workplace with our Employee

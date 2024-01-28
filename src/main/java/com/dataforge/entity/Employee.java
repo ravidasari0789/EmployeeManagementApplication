@@ -5,6 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="employee_mgm")
@@ -14,14 +18,18 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
+	@NotEmpty(message="enter valid firstname")
+	
 	private String firstname;
-
+	@NotEmpty(message="enter valid firstname")
 	private String lastname;
-
+    @Email(message="enter valid email")
+    @NotEmpty
 	private String email;
-
+    @NotEmpty(message="enter valid phno")
+  
 	private String phno;
-
+    @NotEmpty(message="enter valid salary")
 	private String salary;
 
 	public Employee() {
